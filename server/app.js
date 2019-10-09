@@ -7,8 +7,6 @@ const router = require('./routes');
 const app = new Koa();
 const rootDir = process.cwd();
 
-console.log(path.join(rootDir, 'source', 'template'));
-
 const pug = new Pug({
   viewPath: path.join(rootDir, 'source', 'template'),
   basedir: path.join(rootDir, 'source', 'template'),

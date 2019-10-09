@@ -1,11 +1,13 @@
 const path = require('path');
 const Router = require('koa-router');
 const koaBody = require('koa-body');
+const db = require('../db');
+const state = db.getState();
 
 const router = new Router();
 
 router.get('/', async (ctx, next) => {
-  ctx.render('pages/index', {});
+  ctx.body = ctx.render('pages/index');
 })
 
 // router.post('/admin/products', koaBody({
