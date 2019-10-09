@@ -5,7 +5,8 @@
   "license": "ISC",
   "scripts": {
     "start": "set NODE_ENV=development&& gulp",
-    "build": "set NODE_ENV=production&& gulp build"
+    "build": "set NODE_ENV=production&& gulp build",
+    "dev": "nodemon server/app.js"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
@@ -40,6 +41,11 @@
   },
   "dependencies": {
     "jquery": "^3.3.1",
-    "normalize.css": "^7.0.0"
+    "koa": "^2.8.2",
+    "koa-pug": "^4.0.2",
+    "koa-router": "^7.4.0",
+    "lowdb": "^1.0.0",
+    "normalize.css": "^7.0.0",
+    "pug": "^2.0.4"
   }
 }
