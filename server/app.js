@@ -2,7 +2,9 @@ const path = require('path');
 const Koa = require('koa');
 const serve = require('koa-static');
 const Pug = require('koa-pug');
-const router = require('./routes');
+const indexRoutes = require('./routes/index');
+const loginRoutes = require('./routes/login');
+const adminRoutes = require('./routes/admin');
 
 const app = new Koa();
 const rootDir = process.cwd();
@@ -16,6 +18,8 @@ const pug = new Pug({
 });
 
 app.use(serve(path.join(rootDir, 'public')));
-app.use(router.routes());
+app.use(indexRoutes.routes());
+app.use(loginRoutes.routes());
+app.use(adminRoutes.routes());
 
 app.listen(3000, () => console.log('listening'));
