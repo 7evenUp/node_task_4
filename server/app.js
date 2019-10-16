@@ -2,6 +2,8 @@ const path = require('path');
 const Koa = require('koa');
 const serve = require('koa-static');
 const Pug = require('koa-pug');
+const session = require('koa-session');
+const flash = require('koa-better-flash');
 const indexRoutes = require('./routes/index');
 const loginRoutes = require('./routes/login');
 const adminRoutes = require('./routes/admin');
@@ -16,6 +18,10 @@ const pug = new Pug({
   noCache: true,
   app: app
 });
+
+app.keys = ['keys'];
+app.use(session(app));
+app.use(flash());
 
 app.use(serve(path.join(rootDir, 'public')));
 app.use(indexRoutes.routes());
