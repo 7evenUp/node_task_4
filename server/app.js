@@ -20,7 +20,7 @@ const pug = new Pug({
 });
 
 app.keys = ['keys'];
-app.use(session(app));
+app.use(session({ maxAge: 300000 }, app));
 app.use(flash());
 
 app.use(serve(path.join(rootDir, 'public')));

@@ -1,20 +1,17 @@
 const path = require('path');
 const Router = require('koa-router');
 const koaBody = require('koa-body');
-
+const controller = require('../controllers/admin');
 const router = new Router();
-
-router.get('/admin', async ctx => {
-  await ctx.render('pages/admin')
-})
-
-router.post('/admin/upload', koaBody({
+const koaConfig = {
   multipart: true,
   formidable: {
     uploadDir: path.join(process.cwd(), 'public', 'assets', 'img', 'products')
   }
-}), ctx => {
-  console.log('works!')
-});
+};
+
+router.get('/admin', controller.getAdmin);
+router.post('/admin/skills', controller.changeSkills);
+router.post('/admin/upload', koaBody(koaConfig), controller.uploadProduct);
 
 module.exports = router;

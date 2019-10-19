@@ -18,8 +18,9 @@
     }
   },
   "user": {
+    "hash": "2c99279a35eb06cd64d704fbce0ae1a54e66a5145e7dcb1499eefd7e46bbc8e10d9e2636866d722f8125f91b96b2d8e88e49e4bd7b292d4939e48794d72e60ce",
     "email": "admin@mail.ru",
-    "password": "admin"
+    "salt": "0db7424f8cf4cebef82202065a0be093"
   },
   "messages": [
     {
