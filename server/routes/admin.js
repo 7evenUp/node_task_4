@@ -11,7 +11,7 @@ const koaConfig = {
 };
 
 router.get('/admin', controller.getAdmin);
-router.post('/admin/skills', controller.changeSkills);
+router.post('/admin/skills', koaBody(), controller.changeSkills);
 router.post('/admin/upload', koaBody(koaConfig), controller.uploadProduct);
 
 module.exports = router;

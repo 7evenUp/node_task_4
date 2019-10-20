@@ -14,8 +14,8 @@ exports.sendEmail = async ctx => {
     ctx.redirect('/');
   }
   catch (err) {
-    ctx.flash('info', 'Письмо не отправлено');
+    ctx.flash('info', err);
     ctx.status = 400;
-    ctx.redirect('/');
+    ctx.redirect('/#status');
   }
 }

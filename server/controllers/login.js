@@ -1,13 +1,8 @@
 const auth = require('../libs/auth');
 
 exports.getLogin = async ctx => {
-  if (ctx.session.auth) ctx.redirect('/admin');
-  try {
-    await ctx.render('pages/login');
-  }
-  catch (err) {
-    console.error(err);
-  }
+  if (ctx.session.auth) return ctx.redirect('/admin');
+  await ctx.render('pages/login');
 }
 
 exports.auth = async ctx => {
@@ -24,7 +19,6 @@ exports.auth = async ctx => {
     }
   }
   catch (err) {
-    console.error(err);
     ctx.flash('info', err);
     ctx.status = 400;
     ctx.redirect('/login');
